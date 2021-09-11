@@ -19,7 +19,18 @@ app.post("/bookings/", (req, res) => {
   const addBooking = req.body;
   addBooking.id = bookings.length;
   const newBookings = bookings.push(addBooking);
-  res.status(200).json(newBookings);
+
+  if (
+    !req.body.title ||
+    !req.body.firstName ||
+    !req.body.surname ||
+    !req.body.email ||
+    !req.body.roomId ||
+    !req.body.checkInDate ||
+    !req.body.checkOutDate
+  )
+    res.status(404).send(`Please fill all the required fields`);
+  else res.status(200).json(newBookings);
 });
 
 //Level 1-b Read all bookings
