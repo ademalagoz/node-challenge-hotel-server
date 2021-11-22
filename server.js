@@ -16,6 +16,7 @@ app.get("/", function (request, response) {
   response.send("Hotel booking server.  Ask for /bookings, etc.");
 });
 
+console.log("hello luke");
 //Level 1-a Create a new booking
 
 app.post("/bookings/", (req, res) => {
